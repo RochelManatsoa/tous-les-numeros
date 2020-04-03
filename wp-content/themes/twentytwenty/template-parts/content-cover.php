@@ -129,7 +129,11 @@ $has_sidebar_1 = is_active_sidebar( 'sidebar-1' );
 									</span>
 									<?php if ( $has_sidebar_1 ) { ?>
 										<div class="search-widgets column-one grid-item">
-											<?php dynamic_sidebar( 'sidebar-1' ); ?>
+											<div class="widgets widget_search">
+												<div class="widgets-content">
+													<?php get_template_part( 'advanced', 'searchform' ); ?>
+												</div>
+											</div>
 										</div>
 									<?php } ?>
 								</div>

@@ -19,26 +19,28 @@ $unique_id = twentytwenty_unique_id( 'search-form-' );
 
 $aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr( $args['label'] ) . '"' : '';
 ?>
+<h2 class="widget-title subheading heading-size-3">RECHERCHE</h2>
 <form role="search" <?php echo $aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<input type="hidden" name="search" value="advanced">
 	<div class="form-inline-b">
 		<div>
 			<strong class="title-input">Particuliers</strong>
 			<label for="<?php echo esc_attr( $unique_id ); ?>">
 				<span class="screen-reader-text"><?php _e( 'Search for:', 'twentytwenty' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-				<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Qui', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+				<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Qui', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="part" />
 			</label>
 		</div>
 		<div>
 			<strong class="title-input">Professionnels</strong>
 			<label for="<?php echo esc_attr( $unique_id ); ?>">
 				<span class="screen-reader-text"><?php _e( 'Search for:', 'twentytwenty' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-				<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Quoi', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+				<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Quoi', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="pro" />
 			</label>
 		</div>
 	</div>
 	<label for="<?php echo esc_attr( $unique_id ); ?>">
 		<span class="screen-reader-text"><?php _e( 'Search for:', 'twentytwenty' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-		<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Où', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+		<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Où', 'placeholder', 'twentytwenty' ); ?>" value="<?php echo get_search_query(); ?>" name="ville" />
 	</label>
 	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'twentytwenty' ); ?>" />
 </form>

@@ -598,6 +598,20 @@ function twentytwenty_customize_controls_enqueue_scripts() {
 
 add_action( 'customize_controls_enqueue_scripts', 'twentytwenty_customize_controls_enqueue_scripts' );
 
+
+/**
+ * Enqueue scripts and styles.
+ */
+function tout_les_numeros() {
+    wp_enqueue_script( 'enc-base64-js', get_theme_file_uri( '/assets/js/crypto-js.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'enc-base64-js', get_theme_file_uri( '/assets/js/enc-base64.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'hmac-sha256-js', get_theme_file_uri( '/assets/js/hmac-sha256.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'php-js', get_theme_file_uri( '/assets/js/php.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'nuarysh-js', get_theme_file_uri( '/assets/js/nuarysh.js' ), array( 'jquery' ), false, true );
+    wp_enqueue_script( 'custom-js', get_theme_file_uri( '/assets/js/custom.js' ), array( 'jquery' ), false, true );
+}
+add_action( 'wp_enqueue_scripts', 'tout_les_numeros' );
+
 /**
  * Enqueue scripts for the customizer preview.
  *
@@ -755,3 +769,11 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+function wpse_load_custom_search_template(){
+    if( isset($_REQUEST['search']) == 'advanced' ) {
+        require('advanced-search-result.php');
+        die();
+    }
+}
+add_action('init','wpse_load_custom_search_template');
